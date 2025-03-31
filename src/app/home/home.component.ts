@@ -28,15 +28,15 @@ export class HomeComponent {
   }
 
   // Trouver les personnages d'un film particulier
-  getPeopleByFilm(filmId: string): any[] {
-    return this.people().filter((person) =>
-      person.films.includes(filmId)
+  getPeopleByFilm(films: string): any[] {
+    return this.people().filter((people) =>
+      people.films.includes(films)
     );
   }
 
   // Créer les options de quiz pour chaque film
-  getQuizOptions(filmId: string): any[] {
-    const peopleInFilm = this.getPeopleByFilm(filmId);
+  getQuizOptions(films: string): any[] {
+    const peopleInFilm = this.getPeopleByFilm(films);
     const randomPerson = peopleInFilm[Math.floor(Math.random() * peopleInFilm.length)];
 
     // Créer un tableau d'options (1 bonne et 3 fausses)
