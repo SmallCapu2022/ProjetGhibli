@@ -1,0 +1,59 @@
+/* --- Container principal des cartes --- */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  /* --- Cartes individuelles --- */
+  .card {
+    width: 18rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    background-color: #FFFFFF;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* --- Image --- */
+  .card-img-top {
+    border-bottom: 2px solid #F28F3B; /* Sunset Coral */
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+  }
+  
+  /* --- Titre --- */
+  .card-title {
+    color: #2E5E4E; /* Forest Green */
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* --- Lien --- */
+  .card-link {
+    color: #F28F3B;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .card-link:hover {
+    color: #BFD7ED; /* Sky Blue */
+    text-decoration: none;
+  }
+
+
+  .card {
+    margin: 20px;
+  }
+  
+  
