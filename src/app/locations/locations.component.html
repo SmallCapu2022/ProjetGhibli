@@ -1,1 +1,13 @@
-<p>locations works!</p>
+<div class="card-container">
+    @for (location of locations(); track location.id) {
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ location.name }}</h5>
+          <p><strong>Climate:</strong> {{ location.climate }}</p>
+          <p><strong>Terrain:</strong> {{ location.terrain }}</p>
+          <p><strong>Surface Water:</strong> {{ location.surface_water }}%</p>
+        </div>
+      </div>
+    }
+  </div>
+  

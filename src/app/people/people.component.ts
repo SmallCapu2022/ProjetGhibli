@@ -16,7 +16,7 @@ url:string;
 
 @Component({
   selector: 'app-people',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './people.component.html',
   styleUrl: './people.component.css'
 })
