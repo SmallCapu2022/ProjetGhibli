@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="quiz-container">
+    <h1>Welcome to the Ghibli Quiz!</h1>
+  
+    <!-- Affichage des films -->
+    @for (film of films(); track film.id) {
+      <div class="film-card">
+        <h3>{{ film.title }}</h3>
+        <p>{{ film.original_title }}</p>
+        <img [src]="film.image" alt="{{ film.title }} image" class="film-banner" />
+  
+        <h4>Guess the character from this film:</h4>
+  
+        <!-- Affichage des options du quiz -->
+        <div class="quiz-options">
+          @for (option of getQuizOptions(film.id); track option.id) {
+            <div class="quiz-option">
+              <button>
+                {{ option.name }}
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  
