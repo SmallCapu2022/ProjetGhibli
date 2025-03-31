@@ -12,7 +12,7 @@ body {
     padding: 20px;
   }
 
-  /* Style commun pour toutes les cartes */
+ /* Conteneur des cartes */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -22,39 +22,41 @@ body {
     padding: 0 20px;
   }
   
-  /* Carte (pour Personnages, Espèces, Véhicules, Lieux) */
+  /* Carte (plus grande) */
   .card {
-    background-color: #A3C4A8; /* Moss Light */
-    border-radius: 20px;
-    padding: 25px;
-    width: 320px;
-    color: #2E5E4E; /* Forest Green */
-    box-shadow: 0 8px 20px rgba(46, 94, 78, 0.15);
+    background-color: #ffffff; /* Blanc pour un look épuré */
+    border-radius: 10px;
+    padding: 40px;  /* Augmentation du padding pour plus de contenu */
+    width: 400px;   /* Augmenter la largeur des cartes */
+    height: auto;   /* Laisser l'hauteur s'ajuster en fonction du contenu */
+    color: #333333; /* Texte sombre pour une bonne lisibilité */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile pour une profondeur légère */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 2px solid #FDF6EC; /* Cream White outline */
+    border: 1px solid #E0E0E0; /* Bordure douce gris clair */
   }
   
+  /* Effet de survol : une petite translation et ombre plus marquée */
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(46, 94, 78, 0.3);
-    background-color: #BFD7ED; /* Sky Blue hover */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: #f8f8f8; /* Couleur de fond clair lors du survol */
   }
   
-  /* Titre de la carte */
+  /* Titre de la carte (Nom de la catégorie) */
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem; /* Augmentation de la taille du titre */
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;  /* Marge plus grande pour aérer */
     text-align: center;
-    color: #2E5E4E; /* Forest Green */
+    color: #2C3E50; /* Gris foncé pour un effet moderne et élégant */
   }
   
-  /* Infos dans les cartes (Personnages, Espèces, Véhicules, etc.) */
+  /* Infos dans les cartes (par exemple, âge, classification, etc.) */
   .card-body p {
-    font-size: 1rem;
-    color: #333333; /* Ink Black */
-    margin: 6px 0;
+    font-size: 1.1rem; /* Augmenter la taille de la police pour plus de lisibilité */
+    color: #555555; /* Gris moyen pour le texte des détails */
+    margin: 10px 0;   /* Plus d'espace entre les paragraphes */
   }
   
   /* Liste des films et autres éléments associés */
@@ -63,24 +65,26 @@ body {
   }
   
   ul li {
-    margin: 5px 0;
+    margin: 8px 0;  /* Espacement plus large entre les éléments de la liste */
+    color: #7f8c8d; /* Gris clair pour les éléments secondaires */
   }
   
+  /* Étiquettes (par exemple, "Climatique", "Pilote", etc.) */
   .label {
     font-weight: bold;
-    color: #F28F3B; /* Sunset Coral */
+    color: #3498db; /* Bleu pour les étiquettes importantes */
   }
   
   /* Liens */
   a {
-    color: #F28F3B;
+    color: #3498db; /* Couleur bleue pour les liens */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
   }
   
   a:hover {
-    color: #2E5E4E; /* Forest Green */
+    color: #2980b9; /* Couleur bleue plus foncée pour le survol */
     text-decoration: underline;
   }
   
