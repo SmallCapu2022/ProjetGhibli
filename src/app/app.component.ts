@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ApiService } from './api.service';
+import { FilmsService } from './films/films.service';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 
@@ -12,7 +12,7 @@ import { FooterComponent } from "./footer/footer.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  apiService = inject(ApiService)
+  apiService = inject(FilmsService)
   ngOnInit(): void {
     this.apiService.getGhibliFilms().subscribe((response) => {
       console.log(response);
