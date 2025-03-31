@@ -55,7 +55,6 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-https://ghibliapi.vercel.app/films
 
 ## Additional Resources
 
@@ -63,3 +62,8 @@ For more information on using the Angular CLI, including detailed command refere
 =======
 # ProjetGhibli
 >>>>>>> 8d1d2d4b168af56599d3a049d572f00b1323c5a0
+
+
+
+API
+https://ghibliapi.vercel.app/films
