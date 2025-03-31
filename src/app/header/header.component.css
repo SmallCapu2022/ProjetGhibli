@@ -1,6 +1,24 @@
-.navbar{
+.navbar {
     background-color: #2E5E4E;
-}
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .navbar a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navbar a:hover {
+    color: #FDF6EC; /* Cream White */
+    font-weight: bold;
+  }
+  
 a {
     color: white;
     text-decoration: none;
