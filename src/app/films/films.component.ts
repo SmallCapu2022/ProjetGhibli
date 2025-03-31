@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmsService } from './films.service'; // Importez FilmsService
+import { Router } from '@angular/router';
+import { FilmsService } from './films.service';
+import { FilmDetailsComponent } from '../film-details/film-details.component';
 
-interface Film {
+
+export interface Film {
   id: string;
   title: string;
   original_title: string;
   original_title_romanised: string;
-  image: string; // Ajout de la propriété image
+  image: string;
+  movie_banner: string;
   description: string;
   director: string;
   producer: string;
@@ -22,20 +26,28 @@ interface Film {
 
 @Component({
   selector: 'app-films',
-  imports: [],
   templateUrl: './films.component.html',
-  styleUrls: ['./films.component.css']
+  styleUrls: ['./films.component.css'],
+  imports: [FilmDetailsComponent],
+  standalone: true,
 })
 export class FilmsComponent implements OnInit {
 
   films: Film[] = [];
-
-  constructor(private filmsService: FilmsService) { } // Injectez FilmsService
+  
+  constructor(
+private filmsService: FilmsService,
+    private router: Router
+) { }
 
   ngOnInit(): void {
-    this.filmsService.getGhibliFilms().subscribe(data => { // Utilisez le service pour récupérer les films
+    this.filmsService.getGhibliFilms().subscribe(data => {
       this.films = data;
     });
+  }
+
+  onFilmClick(film: Film): void {
+    this.router.navigate(['/films', film.id]);
   }
 
 }

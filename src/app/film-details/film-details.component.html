@@ -1,20 +1,14 @@
-<div class="container">
-  <h1>Films Ghibli</h1>
-  <div class="row">
-    @for (film of films; track film.title) {
-      <div class="col-md-4" (click)="onFilmClick(film)" style="cursor: pointer;">
-        <div class="card">
-          <img [src]="film.image" class="card-img-top" alt="{{ film.title }}">
-          <div class="card-body">
+@if (film) {
+    <div class="card"></div>
+        <img [src]="film.movie_banner" class="card-img-top" alt="{{ film.title }}">
+        <div class="card-body">
             <h5 class="card-title">{{ film.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ film.original_title }} ({{ film.release_date }})</h6>
+            <p class="card-text">{{ film.description }}</p>
             <p class="card-text"><strong>Director:</strong> {{ film.director }}</p>
             <p class="card-text"><strong>Producer:</strong> {{ film.producer }}</p>
             <p class="card-text"><strong>Running Time:</strong> {{ film.running_time }} minutes</p>
             <p class="card-text"><strong>🍅RT Score:</strong> {{ film.rt_score }}</p>
-          </div>
         </div>
-      </div>
-    }
-  </div>
-</div>
+    
+}

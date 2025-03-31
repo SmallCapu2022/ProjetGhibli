@@ -6,7 +6,7 @@ import { PeopleComponent } from './people/people.component';
 import { SpeciesComponent } from './species/species.component';
 import { AboutComponent } from './about/about.component';
 import { LocationsComponent } from './locations/locations.component';
-
+import { FilmDetailsComponent } from './film-details/film-details.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -17,4 +17,5 @@ export const routes: Routes = [
     { path: 'species', component: SpeciesComponent },
     { path: 'vehicles', component: VehiclesComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'films/:id', component: FilmDetailsComponent }
 ];
