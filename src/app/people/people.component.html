@@ -1,13 +1,12 @@
 <div class="card-container">
-    @for (person of people(); track person.id) {
-      <div class="card">
-        <img src="https://loremflickr.com/320/240/person,anime?lock={{person.id}}" class="card-img-top" alt="{{ person.name }}">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ person.name }}</h5>
-          <p>{{ person.gender }} – {{ person.age }}</p>
-          <p>👁️ {{ person.eye_color }} – 💇 {{ person.hair_color }}</p>
-        </div>
+  @for (person of people(); track person.url) {
+    <div class="card">
+      <img src="https://loremflickr.com/320/240/person,anime?lock={{person.id}}" class="card-img-top" alt="{{ person.name }}">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ person.name }}</h5>
+        <p>{{ person.gender }} – {{ person.age }}</p>
+        <p>👁️ {{ person.eye_color }} – 💇 {{ person.hair_color }}</p>
       </div>
-    }
-  </div>
-  
+    </div>
+  }
+</div>
