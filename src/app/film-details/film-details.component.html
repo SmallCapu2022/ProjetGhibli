@@ -1,14 +1,24 @@
 @if (film) {
-    <div class="card"></div>
-        <img [src]="film.movie_banner" class="card-img-top" alt="{{ film.title }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ film.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ film.original_title }} ({{ film.release_date }})</h6>
-            <p class="card-text">{{ film.description }}</p>
-            <p class="card-text"><strong>Director:</strong> {{ film.director }}</p>
-            <p class="card-text"><strong>Producer:</strong> {{ film.producer }}</p>
-            <p class="card-text"><strong>Running Time:</strong> {{ film.running_time }} minutes</p>
-            <p class="card-text"><strong>🍅RT Score:</strong> {{ film.rt_score }}</p>
+  <div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="row g-0">
+        <div class="col-md-5">
+          <img [src]="film.movie_banner" class="img-fluid rounded-start" alt="{{ film.title }}" style="object-fit: cover; width: 100%; height: 100%;">
         </div>
-    
+        <div class="col-md-7">
+          <div class="card-body p-4">
+            <h2 class="card-title fw-bold">{{ film.title }}</h2>
+            <h6 class="card-subtitle mb-3 text-muted">{{ film.original_title }} ({{ film.release_date }})</h6>
+            <p class="card-text lead">{{ film.description }}</p>
+            <ul class="list-unstyled">
+              <li><strong>Director:</strong> {{ film.director }}</li>
+              <li><strong>Producer:</strong> {{ film.producer }}</li>
+              <li><strong>Running Time:</strong> {{ film.running_time }} minutes</li>
+              <li><strong>🍅RT Score:</strong> {{ film.rt_score }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 }
