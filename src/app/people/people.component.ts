@@ -1,7 +1,7 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { PeopleService } from './people.service';
 import { RouterLink } from '@angular/router';
-
+ 
 interface People {
 id: string,
 name: string,
@@ -13,7 +13,7 @@ films: string[],
 species:string[],
 url:string;
 }
-
+ 
 @Component({
   selector: 'app-people',
   imports: [],
@@ -22,9 +22,9 @@ url:string;
 })
 export class PeopleComponent {
   private peopleService = inject(PeopleService);
-
+ 
   people = signal<People[]>([]);
-
+ 
   constructor() {
     effect(() => {
       this.peopleService.getGhibliPeople().subscribe((data) => {
@@ -32,9 +32,9 @@ export class PeopleComponent {
       });
     });
   }
-
+ 
   extractId(url: string): string {
     return url.split('/').pop() ?? '';
   }
-  
+ 
 }
