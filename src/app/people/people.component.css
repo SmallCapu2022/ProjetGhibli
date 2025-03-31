@@ -1,0 +1,57 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .person-card {
+    background: linear-gradient(145deg, #A3C4A8, #FDF6EC);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(46, 94, 78, 0.15);
+    padding: 25px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: #2E5E4E;
+  }
+  
+  .person-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(46, 94, 78, 0.3);
+  }
+  
+  .person-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+    text-align: center;
+  }
+  
+  .person-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #F28F3B;
+  }
+  
+  .badge {
+    background-color: #F28F3B;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 999px;
+    text-align: center;
+    width: fit-content;
+    margin: 15px auto 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  

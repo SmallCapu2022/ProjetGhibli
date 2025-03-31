@@ -1,4 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
+import { PeopleService } from './people.service';
+
+interface People {
+id: string,
+name: string,
+gender: string,
+age: string,
+eye_color: string,
+hair_color: string,
+films: string[],
+species:string[],
+url:string;
+}
 
 @Component({
   selector: 'app-people',
@@ -7,5 +20,15 @@ import { Component } from '@angular/core';
   styleUrl: './people.component.css'
 })
 export class PeopleComponent {
+  private peopleService = inject(PeopleService);
 
+  people = signal<People[]>([]);
+
+  constructor() {
+    effect(() => {
+      this.peopleService.getGhibliPeople().subscribe((data) => {
+        this.people.set(data);
+      });
+    });
+  }
 }
