@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { FilmsService } from './films.service'; // Importez FilmsService
 
 interface Film {
   id: string;
@@ -30,13 +30,12 @@ export class FilmsComponent implements OnInit {
 
   films: Film[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private filmsService: FilmsService) { } // Injectez FilmsService
 
   ngOnInit(): void {
-    this.http.get<Film[]>('https://ghibliapi.vercel.app/films')
-      .subscribe(data => {
-        this.films = data;
-      });
+    this.filmsService.getGhibliFilms().subscribe(data => { // Utilisez le service pour récupérer les films
+      this.films = data;
+    });
   }
 
 }
