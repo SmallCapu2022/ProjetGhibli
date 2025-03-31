@@ -1,0 +1,86 @@
+/* Conteneur principal */
+.container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+  
+  /* Carte avec disposition horizontale, image à gauche et texte à droite */
+  .card {
+    display: flex; /* Utilisation de Flexbox pour une disposition horizontale */
+    flex-direction: column; /* Aligner l'image en haut, le texte en dessous */
+    background-color: #ffffff; /* Fond blanc pour la carte */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Ombre plus marquée pour un effet moderne */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    width: 80%;  /* Largeur plus grande pour s'ajuster à l'écran */
+    padding: 20px;
+  }
+  
+  /* Effet de survol pour l'élévation de la carte */
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+  }
+  
+  /* Image en grande taille avec coins arrondis */
+  .img-fluid {
+    border-radius: 15px;
+    width: 100%;   /* L'image prend toute la largeur disponible */
+    height: 300px; /* Hauteur spécifique de l'image */
+    object-fit: cover; /* Adapter l'image sans la déformer */
+    margin-bottom: 20px;  /* Espace entre l'image et le contenu textuel */
+  }
+  
+  /* Corps du texte */
+  .card-body {
+    padding: 25px 30px; /* Espacement confortable pour le texte */
+  }
+  
+  /* Titre principal du film */
+  .card-title {
+    font-size: 2.2rem; /* Augmenter la taille du titre */
+    font-weight: bold;
+    color: #2C3E50;  /* Gris foncé pour un look élégant */
+    margin-bottom: 20px; /* Espacement après le titre */
+    text-align: center;  /* Centrer le titre */
+  }
+  
+  /* Sous-titre du film (titre original + date) */
+  .card-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;  /* Gris clair pour le sous-titre */
+    margin-bottom: 20px; /* Espacement après le sous-titre */
+    text-align: center;  /* Centrer le sous-titre */
+  }
+  
+  /* Description du film */
+  .card-text.lead {
+    font-size: 1.1rem;
+    color: #555555;  /* Gris clair pour la description */
+    line-height: 1.6; /* Amélioration de la lisibilité */
+    margin-bottom: 20px;
+  }
+  
+  /* Liste des informations supplémentaires sur le film */
+  ul.list-unstyled {
+    padding-left: 0;
+  }
+  
+  ul.list-unstyled li {
+    font-size: 1rem;
+    margin-bottom: 10px; /* Espacement entre les éléments */
+    color: #333333;  /* Gris foncé pour le texte des informations */
+  }
+  
+  ul.list-unstyled li strong {
+    color: #3498db;  /* Bleu pour les labels */
+  }
+  
+  /* Style spécifique pour le RT Score */
+  ul.list-unstyled li:nth-child(4) {
+    font-weight: bold;
+    color: #e74c3c; /* Rouge pour le RT Score */
+  }
+  
