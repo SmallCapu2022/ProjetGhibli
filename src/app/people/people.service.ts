@@ -10,7 +10,7 @@ export class PeopleService {
  
   constructor(){}
 
-  getGhibliFilms(): Observable<any> {
+  getGhibliPeople(): Observable<any> {
     return this.httpClient.get('https://ghibliapi.vercel.app/people')
   }
 }
