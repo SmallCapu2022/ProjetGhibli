@@ -1,5 +1,6 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { PeopleService } from './people.service';
+import { RouterLink } from '@angular/router';
 
 interface People {
 id: string,
@@ -31,4 +32,9 @@ export class PeopleComponent {
       });
     });
   }
+
+  extractId(url: string): string {
+    return url.split('/').pop() ?? '';
+  }
+  
 }

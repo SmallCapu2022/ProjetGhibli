@@ -1,1 +1,14 @@
-<p>species works!</p>
+<div class="card-container">
+    @for (species of specie(); track species.id) {
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ species.name }}</h5>
+          <p><strong>Classification:</strong> {{ species.classification }}</p>
+          <p><strong>Eye Colors:</strong> {{ species.eye_colors }}</p>
+          <p><strong>Hair Colors:</strong> {{ species.hair_colors }}</p>
+  
+        </div>
+      </div>
+    }
+  </div>
+  
