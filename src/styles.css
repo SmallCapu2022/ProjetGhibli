@@ -262,3 +262,87 @@ body {
     }
   }
   
+
+
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f28f3b;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  body.dark-theme {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  body.dark-theme .card,
+  body.dark-theme .quiz-container,
+  body.dark-theme .quiz-card {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-theme .answer-btn {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  body.dark-theme .answer-btn.correct {
+    background-color: #4caf50;
+  }
+  
+  body.dark-theme .answer-btn.wrong {
+    background-color: #e74c3c;
+  }
+  .falling-leaves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .leaf {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('../public/icons8-feuille-96.png'); /* feuille PNG libre */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: fall 10s linear infinite;
+    opacity: 0.8;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      left: calc(100% * var(--rand));
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      left: calc(100% * var(--rand));
+    }
+  }
+  
+  .leaf:nth-child(1) { --rand: 0.1; animation-delay: 0s; }
+  .leaf:nth-child(2) { --rand: 0.2; animation-delay: 2s; }
+  .leaf:nth-child(3) { --rand: 0.3; animation-delay: 4s; }
+  .leaf:nth-child(4) { --rand: 0.4; animation-delay: 1s; }
+  .leaf:nth-child(5) { --rand: 0.5; animation-delay: 3s; }
+  .leaf:nth-child(6) { --rand: 0.6; animation-delay: 5s; }
+  .leaf:nth-child(7) { --rand: 0.7; animation-delay: 2.5s; }
+  .leaf:nth-child(8) { --rand: 0.8; animation-delay: 1.2s; }
+  .leaf:nth-child(9) { --rand: 0.9; animation-delay: 3.7s; }
+  .leaf:nth-child(10) { --rand: 0.95; animation-delay: 4.5s; }
+  

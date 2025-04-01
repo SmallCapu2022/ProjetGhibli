@@ -16,5 +16,6 @@ import { Quizz } from "../quizz/quizz.component";
   imports: [CharacterOfTheDayComponent, FindTheFilmComponent, Quizz]
 })
 export class HomeComponent {
-  
+  leaves = Array.from({ length: 10 });
+
 }

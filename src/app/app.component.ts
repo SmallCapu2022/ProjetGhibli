@@ -19,4 +19,9 @@ export class AppComponent implements OnInit {
     });
   }
   title = 'ProjetGhibli';
+
+  toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+  }
+  
 }

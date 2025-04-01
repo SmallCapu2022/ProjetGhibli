@@ -1,5 +1,10 @@
 <app-caractereoftheday></app-caractereoftheday>
-
+<div class="falling-leaves">
+    @for (leaf of leaves; track $index) {
+      <div class="leaf"></div>
+    }
+  </div>
+  
 <div class="games-grid">
   <app-findthefilm></app-findthefilm>
   <app-quizz></app-quizz>
