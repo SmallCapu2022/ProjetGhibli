@@ -1,26 +1,55 @@
 <div class="quiz-container">
-    <h1>Welcome to the Ghibli Quiz!</h1>
-  
-    <!-- Affichage des films -->
-    @for (film of films(); track film.id) {
-      <div class="film-card">
-        <h3>{{ film.title }}</h3>
-        <p>{{ film.original_title }}</p>
-        <img [src]="film.image" alt="{{ film.title }} image" class="film-banner" />
-  
-        <h4>Guess the character from this film:</h4>
-  
-        <!-- Affichage des options du quiz -->
-        <div class="quiz-options">
-          @for (option of getQuizOptions(film.id); track option.id) {
-            <div class="quiz-option">
-              <button>
-                {{ option.name }}
-              </button>
-            </div>
-          }
-        </div>
-      </div>
+    <h1>🎯 Ghibli Quiz</h1>
+
+    @if (isFinished()) {
+    <div class="quiz-result">
+        <h2>🎉 Quiz terminé !</h2>
+        <p>Votre score : {{ score() }}/{{ totalQuestions }}</p>
+
+        <div class="stars">
+            @for (star of getStarsArray(score()); track $index) {
+              <span>⭐</span>
+            }
+          </div>
+          
+
+        <button (click)="restartQuiz()" class="restart-btn">Rejouer</button>
+    </div>
+    } @else {
+    @if (isLoading()) {
+    <div class="loading">
+        <img src="https://media.tenor.com/1bEB4N0kT50AAAAC/totoro-dance.gif" alt="Totoro dance" class="loading-gif" />
+        <p>Chargement en cours...</p>
+    </div>
     }
-  </div>
-  
+    @else {
+    <p>Question {{ currentQuestionIndex() + 1 }} / {{ totalQuestions }}</p>
+    <div class="progress-container">
+        <div class="progress-bar" [style.width.%]="(currentQuestionIndex() / totalQuestions) * 100"></div>
+    </div>
+
+
+    <div class="quiz-card">
+        <h3>Catégorie : {{ currentQuestion().category }}</h3>
+        <ul>
+            @for (clue of getClues(); track $index) {
+            <li>{{ clue }}</li>
+            }
+        </ul>
+
+        <div class="quiz-options">
+            @for (option of currentQuestion().options; track option.id) {
+            <button class="answer-btn" [class.correct]="selectedAnswer() && option.id === currentQuestion().correct.id"
+                [class.wrong]="selectedAnswer() && option.id === selectedAnswer() && option.id !== currentQuestion().correct.id"
+                (click)="!selectedAnswer() && selectAnswer(option.id)">
+                {{ option.name ?? option.title }}
+            </button>
+            }
+
+        </div>
+
+        <button class="next-btn" [disabled]="!selectedAnswer()" (click)="next()">Suivant</button>
+    </div>
+    }
+    }
+</div>
