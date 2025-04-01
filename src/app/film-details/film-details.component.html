@@ -21,9 +21,33 @@
       </div>
     </div>
 
-    <div >
-      <h3>Characters</h3>
-      <app-people></app-people>
+    <div class="mt-5">
+      <h3 class="mb-4">Characters in {{ film.title }}</h3>
+      
+      @if (loading()) {
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      } @else if (filmCharacters().length > 0) {
+        <div class="card-container">
+          @for (person of filmCharacters(); track person.id) {
+            <div class="card">
+              <img src="avatar.png" class="card-img-top" alt="{{ person.name }}">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ person.name }}</h5>
+                <p>{{ person.gender }} – {{ person.age }}</p>
+                <p>👁️ {{ person.eye_color }} – 💇 {{ person.hair_color }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="alert alert-info">
+          Aucun personnage n'est associé à ce film.
+        </div>
+      }
     </div>
   </div>
 }
