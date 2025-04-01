@@ -1,0 +1,70 @@
+<div class="quiz-container">
+    <h1>🎬 Trouve le film</h1>
+  
+    @if (isFinished()) {
+      <div class="quiz-result">
+        <h2>🏁 Jeu terminé !</h2>
+        <p>Score : {{ score() }} / {{ totalQuestions }}</p>
+  
+        <div class="stars">
+          @for (star of getStarsArray(score()); track $index) {
+            <span>⭐</span>
+          }
+        </div>
+  
+        <button class="restart-btn" (click)="restartGame()">Rejouer</button>
+      </div>
+    } @else {
+      @if (isLoading()) {
+        <div class="loading">
+          <img
+            src="https://media.tenor.com/1bEB4N0kT50AAAAC/totoro-dance.gif"
+            class="loading-gif"
+            alt="Chargement..."
+          />
+          <p>Chargement des questions...</p>
+        </div>
+      } @else {
+        <p>Question {{ currentQuestionIndex() + 1 }} / {{ totalQuestions }}</p>
+        <div class="progress-container">
+          <div
+            class="progress-bar"
+            [style.width.%]="(currentQuestionIndex() / totalQuestions) * 100"
+          ></div>
+        </div>
+  
+        <div class="quiz-card">
+          <p class="description">"{{ currentQuestion.description }}"</p>
+  
+          <div class="quiz-options">
+            @for (option of currentQuestion.options; track option.id) {
+              <button
+                class="answer-btn"
+                [class.correct]="
+                  selectedAnswer() &&
+                  option.id === currentQuestion.correct.id
+                "
+                [class.wrong]="
+                  selectedAnswer() &&
+                  option.id === selectedAnswer() &&
+                  option.id !== currentQuestion.correct.id
+                "
+                (click)="!selectedAnswer() && selectAnswer(option.id)"
+              >
+                {{ option.title }}
+              </button>
+            }
+          </div>
+  
+          <button
+            class="next-btn"
+            [disabled]="!selectedAnswer()"
+            (click)="next()"
+          >
+            Suivant
+          </button>
+        </div>
+      }
+    }
+  </div>
+  

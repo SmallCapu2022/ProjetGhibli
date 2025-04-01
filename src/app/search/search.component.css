@@ -1,0 +1,6 @@
+.search-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
