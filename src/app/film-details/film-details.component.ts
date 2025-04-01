@@ -1,10 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmsService } from '../films/films.service';
 import { Film } from '../films/films.component';
+import { PeopleService } from '../people/people.service';
 import { PeopleComponent } from '../people/people.component';
-import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+
+interface Person {
+  id: string;
+  name: string;
+  gender: string;
+  age: string;
+  eye_color: string;
+  hair_color: string;
+  films: string[];
+  species: string[];
+  url: string;
+}
 
 @Component({
   selector: 'app-film-details',
@@ -15,24 +27,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FilmDetailsComponent implements OnInit {
   film: Film | null = null;
-  people: any[] = [];
+  filmCharacters = signal<Person[]>([]);
+  loading = signal<boolean>(true);
 
   constructor(
     private route: ActivatedRoute,
     private filmsService: FilmsService,
+    private peopleService: PeopleService,
     private http: HttpClient
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const filmId = params['id'];
+      this.loading.set(true);
+      
       this.filmsService.getFilmById(filmId).subscribe(film => {
         this.film = film;
-        if (film && film.people) {
-          this.people=film.people;
+        
+        if (film && film.people && film.people.length > 0) {
+          // Récupérer les détails de chaque personnage
+          this.peopleService.getPeopleFromUrls(film.people).subscribe(
+            characters => {
+              this.filmCharacters.set(characters);
+              this.loading.set(false);
+            },
+            error => {
+              console.error('Erreur lors de la récupération des personnages:', error);
+              this.loading.set(false);
+            }
+          );
+        } else {
+          this.loading.set(false);
         }
       });
     });
   }
-
 }

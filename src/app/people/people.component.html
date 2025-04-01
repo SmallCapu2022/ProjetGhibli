@@ -1,7 +1,7 @@
 <div class="card-container">
   @for (person of people(); track person.url) {
     <div class="card">
-      <img src="https://loremflickr.com/320/240/person,anime?lock={{person.id}}" class="card-img-top" alt="{{ person.name }}">
+      <img src="avatar.png" class="card-img-top" alt="{{ person.name }}">
       <div class="card-body text-center">
         <h5 class="card-title">{{ person.name }}</h5>
         <p>{{ person.gender }} – {{ person.age }}</p>
