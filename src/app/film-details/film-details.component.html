@@ -23,7 +23,7 @@
 
     <div class="mt-5">
       <h3 class="mb-4">Characters in {{ film.title }}</h3>
-      
+
       @if (loading()) {
         <div class="d-flex justify-content-center">
           <div class="spinner-border text-primary" role="status">
@@ -33,12 +33,12 @@
       } @else if (filmCharacters().length > 0) {
         <div class="card-container">
           @for (person of filmCharacters(); track person.id) {
-            <div class="card">
-              <img src="avatar.png" class="card-img-top" alt="{{ person.name }}">
+            <div class="card" style="width: 150px;">
+              <img src="avatar.png" class="card-img-top" alt="{{ person.name }}" style="height: 100px; object-fit: cover;">
               <div class="card-body text-center">
-                <h5 class="card-title">{{ person.name }}</h5>
-                <p>{{ person.gender }} – {{ person.age }}</p>
-                <p>👁️ {{ person.eye_color }} – 💇 {{ person.hair_color }}</p>
+                <h5 class="card-title" style="font-size: 14px;">{{ person.name }}</h5>
+                <p style="font-size: 12px;">{{ person.gender }} – {{ person.age }}</p>
+                <p style="font-size: 12px;">👁️ {{ person.eye_color }} – 💇 {{ person.hair_color }}</p>
               </div>
             </div>
           }
