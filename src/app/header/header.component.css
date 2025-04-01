@@ -28,3 +28,46 @@ a:hover {
     text-decoration: none;
     font-weight: bold;
 }
+  
+  .custom-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #2c3e50;
+  }
+  
+  .search-bar-container {
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  app-search {
+    width: 250px;
+  }
+  
+  .result-card {
+    background: #f7f7f7;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 16px;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  .result-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .result-item:hover {
+    background-color: #e3f6f5;
+    font-weight: 500;
+    transform: translateX(5px);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

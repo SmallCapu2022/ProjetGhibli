@@ -19,5 +19,15 @@ export class FilmsService {
       map((films: any[]) => films.find(film => film.id === id))
     );
   }
+  getGhibliFilmsFiltered(pattern: string): Observable<any[]> {
+    return this.getGhibliFilms().pipe(
+      map((films: any[]) =>
+        films.filter(film =>
+          film.title.toLowerCase().includes(pattern.toLowerCase())
+        )
+      )
+    );
+  }
+  
 }
 

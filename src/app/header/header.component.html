@@ -1,20 +1,45 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container-fluid">
-        <img src="totoro.png" class="navbar-brand" alt="Studio Ghibli Logo" width="50" height="50">
-      <a class="navbar-brand" href="#">Studio Ghibli</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="totoro.png" class="navbar-brand" alt="Studio Ghibli Logo" width="50" height="50">
+      <a class="navbar-brand custom-brand" href="#">Studio Ghibli</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a routerLink="/home" routerLinkActive="gras">Home</a>
-            <a routerLink="/films" routerLinkActive="gras">Films</a>
-            <a routerLink="/people" routerLinkActive="gras">People</a>
-            <a routerLink="/locations" routerLinkActive="gras">Locations</a>
-            <a routerLink="/species" routerLinkActive="gras">Species</a>
-            <a routerLink="/vehicles" routerLinkActive="gras">Vehicles</a>
-            <a routerLink="/about" routerLinkActive="gras">About</a>
+        <div class="navbar-nav me-auto">
+          <a routerLink="/home" routerLinkActive="gras">Home</a>
+          <a routerLink="/films" routerLinkActive="gras">Films</a>
+          <a routerLink="/people" routerLinkActive="gras">People</a>
+          <a routerLink="/locations" routerLinkActive="gras">Locations</a>
+          <a routerLink="/species" routerLinkActive="gras">Species</a>
+          <a routerLink="/vehicles" routerLinkActive="gras">Vehicles</a>
+          <a routerLink="/about" routerLinkActive="gras">About</a>
+        </div>
+        <div class="search-bar-container">
+          <app-search (onFilter)="onFilter($event)"></app-search>
         </div>
       </div>
     </div>
   </nav>
+  
+  <!-- Résultats stylisés -->
+  @if (matchingFilms.length > 0) {
+    <div class="container mt-3">
+      <div class="result-card">
+        <h5>🎬 Multiple films found:</h5>
+        <ul class="list-group">
+          @for (film of matchingFilms; track film.id) {
+            <li class="list-group-item result-item" (click)="goToFilm(film.id)">
+              🎞️ {{ film.title }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  } @else if (errorMessage) {
+    <div class="container mt-3">
+      <div class="alert alert-warning">{{ errorMessage }}</div>
+    </div>
+  }
+  

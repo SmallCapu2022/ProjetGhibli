@@ -6,16 +6,6 @@
           <p><strong>Class:</strong> {{ vehicle.vehicle_class }}</p>
           <p><strong>Length:</strong> {{ vehicle.length }} meters</p>
           <p><strong>Description:</strong> {{ vehicle.description }}</p>
-  
-          <h6>Pilot:</h6>
-          <p>{{ vehicle.pilot }}</p> <!-- Simple affichage sans lien ici -->
-  
-          <h6>Appears in films:</h6>
-          <ul>
-            @for (film of vehicle.films; track film) {
-              <li>{{ film }}</li> <!-- Simple affichage sans lien -->
-            }
-          </ul>
         </div>
       </div>
     }
