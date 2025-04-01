@@ -1,0 +1,15 @@
+<div class="character-card">
+    @if (character()) {
+      <h2>✨ Character of the Day</h2>
+      <h3>{{ character().name }}</h3>
+      <p><strong>Gender:</strong> {{ character().gender }}</p>
+      <p><strong>Age:</strong> {{ character().age }}</p>
+      <p><strong>Hair:</strong> {{ character().hair_color }} | <strong>Eyes:</strong> {{ character().eye_color }}</p>
+      <p><strong>Appears in:</strong> {{ filmTitle() }}</p>
+    } @else {
+      <div class="loading">
+        <img src="https://media.tenor.com/1bEB4N0kT50AAAAC/totoro-dance.gif" alt="Totoro dance" class="loading-gif" />
+        <p>Loading character...</p>
+      </div>
+    }
+  </div>

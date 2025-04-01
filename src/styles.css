@@ -87,4 +87,178 @@ body {
     color: #2980b9; /* Couleur bleue plus foncée pour le survol */
     text-decoration: underline;
   }
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading-gif {
+    width: 160px;
+    margin: 1rem;
+  }
+
+  .quiz-container {
+    max-width: 720px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: linear-gradient(to bottom, #fdf6ec, #fff);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    color: #2e5e4e;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #a3c4a8;
+  }
+  
+  .quiz-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .description {
+    font-style: italic;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+  
+  .answer-btn {
+    background-color: #bfd7ed;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .answer-btn:hover {
+    background-color: #a3c4a8;
+  }
+  
+  .answer-btn.correct {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .answer-btn.wrong {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .next-btn {
+    margin-top: 20px;
+    background-color: #f28f3b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .next-btn:hover {
+    background-color: #2e5e4e;
+  }
+  
+  
+  .progress-container {
+    width: 80%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #f28f3b;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .quiz-result h2 {
+    color: #2e5e4e;
+  }
+  
+  .stars {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  
+  .restart-btn {
+    background-color: #2e5e4e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .restart-btn:hover {
+    background-color: #24473b;
+  }
+  /* === Section pour les jeux en grille sur la home page === */
+
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px auto;
+    padding: 0 20px;
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+  
+  .games-grid app-findthefilm,
+  .games-grid app-quizz {
+    flex: 1 1 400px;
+    max-width: 600px;
+    min-width: 300px;
+    animation: floatIn 0.6s ease forwards;
+  }
+  
+  @keyframes floatIn {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   
