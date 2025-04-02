@@ -7,9 +7,10 @@ import { SpeciesComponent } from './species/species.component';
 import { AboutComponent } from './about/about.component';
 import { LocationsComponent } from './locations/locations.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/home' },
+    { path: '', component: SplashScreenComponent }, // Splash d'abord
     { path: 'home', component: HomeComponent },
     { path: 'films', component: FilmsComponent },
     { path: 'people', component: PeopleComponent },
