@@ -8,5 +8,5 @@ RUN npm install && npm run build -- --configuration=production
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/projet-ghibli/browser /usr/share/nginx/html
-EXPOSE 8080
+EXPOSE 4200
 CMD ["nginx", "-g", "daemon off;"]
