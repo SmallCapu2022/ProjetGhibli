@@ -1,32 +1,12 @@
-# Use official node image as base image
-FROM node:20-alpine AS builder
-
-# Set working directory
+# Étape 1 : Construire l'application Angular
+FROM node:20 AS build
 WORKDIR /app
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the source code into the working directory
 COPY . .
+RUN npm install && npm run build -- --configuration=production
 
-# Build the angular app for production (sans modifier le chemin de sortie)
-RUN npm run build
-
-# Stage 2: Serve app with nginx
+# Étape 2 : Servir avec Nginx
 FROM nginx:alpine
-
-# Configurez nginx pour écouter sur le port 8080
-RUN sed -i.bak 's/listen\s*80;/listen 8080;/' /etc/nginx/conf.d/default.conf
-
-# Copy built app from builder stage
-COPY --from=builder /app/dist/projet-ghibli /usr/share/nginx/html
-
-# Expose port
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/projet-ghibli/browser /usr/share/nginx/html
 EXPOSE 8080
-
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
