@@ -3,4 +3,26 @@
     font-style: italic;
     font-family: 'Quicksand', sans-serif;
   }
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  .search-input:focus {
+    border-color: #f28f3b;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(242, 143, 59, 0.2);
+  }
   

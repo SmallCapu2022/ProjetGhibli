@@ -346,3 +346,71 @@ body {
   .leaf:nth-child(9) { --rand: 0.9; animation-delay: 3.7s; }
   .leaf:nth-child(10) { --rand: 0.95; animation-delay: 4.5s; }
   
+  .result-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .result-item:hover {
+    background-color: #f4f4f4;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  body.dark-theme .result-item {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+  }
+  
+  body.dark-theme .result-item:hover {
+    background-color: #3a3a3a;
+  }
+    
+  /* DARK MODE — amélioration de la lisibilité dans les cartes de films */
+body.dark-theme .card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+  }
+  
+  body.dark-theme .card-title {
+    color: #f8f8f8;
+  }
+  
+  body.dark-theme .card-body p {
+    color: #cccccc;
+  }
+  
+  body.dark-theme .card-body strong,
+  body.dark-theme .card-body b {
+    color: #ffffff;
+  }
+  body.dark-theme .card-body p:has(strong) {
+    color: #ffcc70;
+  }
+  /* Pour le texte des descriptions */
+body.dark-theme .description {
+    color: #e0e0e0; /* Un gris plus clair pour améliorer la lisibilité */
+  }
+  
+  /* Pour le texte général dans les cartes */
+  body.dark-theme .card-body p {
+    color: #d3d3d3; /* Gris clair pour les autres paragraphes */
+  }
+  
+  /* Texte dans les titres des films, pour plus de contraste */
+  body.dark-theme .card-title {
+    color: #ffffff; /* Blanc pour plus de contraste */
+  }
+  
+  /* Textes dans les résultats RT score */
+  body.dark-theme .card-body .rt-score {
+    color: #f28f3b; /* Accent orange pour les RT scores */
+  }
+  
