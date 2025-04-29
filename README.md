@@ -1,69 +1,102 @@
-<<<<<<< HEAD
-# ProjetGhibli
+# 🎬 Studio Ghibli Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+Une application web interactive qui met en valeur l'univers magique des films de Studio Ghibli à travers une interface moderne et engageante. ([Démo en ligne](https://projet-ghibli-504987642146.europe-west9.run.app/home))
 
-## Development server
 
-To start a local development server, run:
 
+![alt text](image.png)
+
+## 🌟 Fonctionnalités
+
+- **Catalogue de films** : Parcourez tous les films de Studio Ghibli avec leurs détails complets.
+- **Personnages** : Explorez les personnages emblématiques de l'univers Ghibli.
+- **Lieux** : Découvrez les lieux magiques qui apparaissent dans les films.
+- **Espèces** : Apprenez-en plus sur les différentes espèces qui peuplent les mondes Ghibli.
+- **Véhicules** : Examinez les véhicules étonnants présents dans les films.
+- **Mode sombre/clair** : Basculez entre les thèmes visuels selon vos préférences.
+- **Jeux interactifs** :
+  - **Quiz Ghibli** : Testez vos connaissances sur l'univers Ghibli.
+  - **Trouve le film** : Identifiez les films à partir de leurs descriptions.
+- **Personnage du jour** : Découvrez chaque jour un nouveau personnage mis en avant.
+
+## 🔧 Technologies utilisées
+
+- **Angular 19** : Framework front-end moderne
+- **TypeScript** : Pour un code robuste et typé
+- **RxJS** : Gestion des opérations asynchrones
+- **API Studio Ghibli** : Source des données ([ghibliapi.vercel.app](https://ghibliapi.vercel.app))
+- **Bootstrap** : Pour une interface responsive
+- **Docker** : Pour la conteneurisation de l'application
+
+## 🚀 Installation
+
+### Prérequis
+- Node.js 18+ et npm
+- Angular CLI 19+
+
+### Étapes d'installation
+
+1. Cloner le dépôt :
 ```bash
-ng serve
+git clone https://github.com/votre-utilisateur/ProjetGhibli.git
+cd ProjetGhibli
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+2. Installer les dépendances :
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+3. Lancer l'application en mode développement :
 ```bash
-ng generate --help
+npm start
+```
+L'application sera accessible à l'adresse [http://localhost:4200](http://localhost:4200).
+
+### Utilisation avec Docker
+
+1. Construire l'image Docker :
+```bash
+docker build -t projet-ghibli .
 ```
 
-## Building
-
-To build the project run:
-
+2. Exécuter le conteneur :
 ```bash
-ng build
+docker run -p 4200:80 projet-ghibli
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📋 Structure du projet
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```
+ProjetGhibli/
+├── src/
+│   ├── app/
+│   │   ├── films/           # Composants liés aux films
+│   │   ├── people/          # Composants liés aux personnages
+│   │   ├── locations/       # Composants liés aux lieux
+│   │   ├── species/         # Composants liés aux espèces
+│   │   ├── vehicles/        # Composants liés aux véhicules
+│   │   ├── quizz/           # Quiz interactif
+│   │   ├── findthefilm/     # Jeu "Trouve le film"
+│   │   ├── header/          # En-tête de l'application
+│   │   ├── footer/          # Pied de page
+│   │   └── ...
+│   ├── assets/              # Images et ressources statiques
+│   └── styles.css           # Styles globaux
+├── public/                  # Fichiers publics (icônes, images)
+└── ...
 ```
 
-## Running end-to-end tests
+## 🤝 Contributeurs
 
-For end-to-end (e2e) testing, run:
+- **Capucine Debailleul** - [GitHub](https://github.com/SmallCapu2022)
+- **Loic Missigbeto** - [GitHub](https://github.com/loic-msgb)
 
-```bash
-ng e2e
-```
+## 📝 Licence
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
+## 🙏 Remerciements
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# ProjetGhibli
->>>>>>> 8d1d2d4b168af56599d3a049d572f00b1323c5a0
-
-
-
-API
-https://ghibliapi.vercel.app/films
+- [Studio Ghibli API](https://ghibliapi.vercel.app) pour la mise à disposition des données.
+- [Studio Ghibli](https://www.ghibli.jp) pour la création d'un univers cinématographique merveilleux qui continue d'inspirer.

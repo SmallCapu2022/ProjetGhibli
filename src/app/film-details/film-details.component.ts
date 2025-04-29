@@ -38,15 +38,18 @@ export class FilmDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // S'abonne aux changements de paramètres dans l'URL (notamment l'ID du film)
     this.route.params.subscribe(params => {
       const filmId = params['id'];
       this.loading.set(true);
       
+      // Récupère les détails du film à partir de son ID
       this.filmsService.getFilmById(filmId).subscribe(film => {
         this.film = film;
         
+        // Si le film a des personnages associés, récupérer leurs détails
         if (film && film.people && film.people.length > 0) {
-          // Récupérer les détails de chaque personnage
+          // Récupérer les détails de chaque personnage à partir de leurs URLs
           this.peopleService.getPeopleFromUrls(film.people).subscribe(
             characters => {
               this.filmCharacters.set(characters);

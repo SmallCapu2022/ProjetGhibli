@@ -21,15 +21,18 @@ export class CharacterOfTheDayComponent {
     this.loadCharacterOfTheDay();
   }
 
+  // Charge un personnage "du jour" en utilisant la date actuelle pour avoir une sélection consistante
   async loadCharacterOfTheDay() {
+    // Récupération de tous les personnages et films
     const people = await firstValueFrom(this.peopleService.getGhibliPeople());
     const films = await firstValueFrom(this.filmsService.getGhibliFilms());
 
-    // Crée un index basé sur la date pour un personnage du jour stable
+    // Utilise le jour du mois pour sélectionner un personnage qui sera le même pendant toute la journée
     const dayIndex = new Date().getDate() % people.length;
     const selected = people[dayIndex];
     this.character.set(selected);
 
+    // Trouve le film auquel appartient le personnage pour l'afficher
     const filmUrl = selected.films?.[0];
     const film = films.find((f: { url: any; }) => f.url === filmUrl);
     if (film) this.filmTitle.set(film.title);
